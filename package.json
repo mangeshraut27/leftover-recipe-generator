@@ -18,6 +18,13 @@
     "test:visual": "playwright test --grep @visual",
     "test:all": "npm run test && npm run test:e2e",
     "test:coverage": "jest --coverage",
+    "test:regression": "playwright test --grep @regression",
+    "test:edge-cases": "playwright test --grep @edge-case",
+    "test:stress": "playwright test --grep @stress-test",
+    "test:recipe-display": "playwright test tests/e2e/recipe-display-interaction.spec.js",
+    "test:recipe-history": "playwright test tests/e2e/recipe-history-management.spec.js",
+    "test:edge-stress": "playwright test tests/e2e/edge-cases-stress.spec.js",
+    "test:manual-coverage": "npm run test:recipe-display && npm run test:recipe-history && npm run test:edge-stress",
     "playwright:install": "playwright install"
   },
   "dependencies": {
