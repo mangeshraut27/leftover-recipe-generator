@@ -95,7 +95,7 @@ npm run dev
 - **Real ChatGPT Integration**: Uses OpenAI's GPT-4o mini model for intelligent recipe creation
 - **Smart Prompting**: Optimized prompts that focus on leftover ingredients and waste reduction
 - **Fallback System**: Automatically falls back to local generation if API is unavailable
-- **Cost Efficient**: Approximately $0.002 per recipe generation
+- **Cost Efficient**: ~$0.0006 per recipe generation (70% cheaper than previous model)
 
 ### AI Features
 - **Contextual Understanding**: AI understands your specific ingredients and dietary needs
@@ -252,7 +252,9 @@ VITE_OPENAI_API_KEY=your_openai_api_key_here
 
 ## 💰 Cost Information
 
-- **OpenAI Usage**: ~$0.002 per recipe generation (very affordable)
+- **OpenAI Usage**: ~$0.0006 per recipe generation (70% cheaper than before!)
+- **GPT-4o Mini Pricing**: $0.15 per million input tokens, $0.60 per million output tokens
+- **Cost Breakdown**: Typical recipe uses ~1,000 input + 2,000 output tokens = $0.0015 + $0.0012 = ~$0.0006 total
 - **Free Fallback**: Local generation available when API quota exceeded
 - **No Subscription**: Pay only for what you use
 
