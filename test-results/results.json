@@ -1,0 +1,704 @@
+{
+  "config": {
+    "configFile": "/Users/mangeshraut/Development/hackathon test/playwright.config.js",
+    "rootDir": "/Users/mangeshraut/Development/hackathon test/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": "/Users/mangeshraut/Development/hackathon test/tests/e2e/global-setup.js",
+    "globalTeardown": "/Users/mangeshraut/Development/hackathon test/tests/e2e/global-teardown.js",
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 7
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "test-results/results.xml"
+        }
+      ],
+      [
+        "line",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/mangeshraut/Development/hackathon test/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 7
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/mangeshraut/Development/hackathon test/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mangeshraut/Development/hackathon test/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 7
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/mangeshraut/Development/hackathon test/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mangeshraut/Development/hackathon test/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 7
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/mangeshraut/Development/hackathon test/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mangeshraut/Development/hackathon test/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 7
+        },
+        "id": "Mobile Chrome",
+        "name": "Mobile Chrome",
+        "testDir": "/Users/mangeshraut/Development/hackathon test/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mangeshraut/Development/hackathon test/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 7
+        },
+        "id": "Mobile Safari",
+        "name": "Mobile Safari",
+        "testDir": "/Users/mangeshraut/Development/hackathon test/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mangeshraut/Development/hackathon test/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 7
+        },
+        "id": "Microsoft Edge",
+        "name": "Microsoft Edge",
+        "testDir": "/Users/mangeshraut/Development/hackathon test/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mangeshraut/Development/hackathon test/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 7
+        },
+        "id": "Google Chrome",
+        "name": "Google Chrome",
+        "testDir": "/Users/mangeshraut/Development/hackathon test/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.52.0",
+    "workers": 7,
+    "webServer": {
+      "command": "npm run dev",
+      "url": "http://localhost:5173",
+      "reuseExistingServer": true,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "recipe-generation.spec.js",
+      "file": "recipe-generation.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Recipe Generation Flow",
+          "file": "recipe-generation.spec.js",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should complete full recipe generation flow @smoke",
+              "ok": false,
+              "tags": [
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1238,
+                      "error": {
+                        "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('chicken') resolved to 2 elements:\n    1) <span data-testid=\"selected-ingredient-0\" class=\"inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800\">…</span> aka getByTestId('selected-ingredient-0')\n    2) <span class=\"px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm\">chicken</span> aka getByText('chicken', { exact: true })\n\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('chicken')\u001b[22m\n",
+                        "stack": "Error: expect.toBeVisible: Error: strict mode violation: getByText('chicken') resolved to 2 elements:\n    1) <span data-testid=\"selected-ingredient-0\" class=\"inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800\">…</span> aka getByTestId('selected-ingredient-0')\n    2) <span class=\"px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm\">chicken</span> aka getByText('chicken', { exact: true })\n\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('chicken')\u001b[22m\n\n    at /Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js:17:45",
+                        "location": {
+                          "file": "/Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js",
+                          "column": 45,
+                          "line": 17
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 15 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'chicken'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 16 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 17 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'chicken'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 18 |\u001b[39m     \n \u001b[90m 19 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'rice'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 20 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js",
+                            "column": 45,
+                            "line": 17
+                          },
+                          "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('chicken') resolved to 2 elements:\n    1) <span data-testid=\"selected-ingredient-0\" class=\"inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800\">…</span> aka getByTestId('selected-ingredient-0')\n    2) <span class=\"px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm\">chicken</span> aka getByText('chicken', { exact: true })\n\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('chicken')\u001b[22m\n\n\n\u001b[0m \u001b[90m 15 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'chicken'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 16 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 17 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'chicken'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 18 |\u001b[39m     \n \u001b[90m 19 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'rice'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 20 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at /Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js:17:45\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-05-29T04:44:31.293Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mangeshraut/Development/hackathon test/test-results/recipe-generation-Recipe-G-068af-ecipe-generation-flow-smoke-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/mangeshraut/Development/hackathon test/test-results/recipe-generation-Recipe-G-068af-ecipe-generation-flow-smoke-chromium/video.webm"
+                        },
+                        {
+                          "name": "_error-context-0",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mangeshraut/Development/hackathon test/test-results/recipe-generation-Recipe-G-068af-ecipe-generation-flow-smoke-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js",
+                        "column": 45,
+                        "line": 17
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "124340fe46c2b9bc87c4-cdb97ba5eee81d84a972",
+              "file": "recipe-generation.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "should complete full recipe generation flow @smoke",
+              "ok": false,
+              "tags": [
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 1234,
+                      "error": {
+                        "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('chicken') resolved to 2 elements:\n    1) <span data-testid=\"selected-ingredient-0\" class=\"inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800\">…</span> aka getByTestId('selected-ingredient-0')\n    2) <span class=\"px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm\">chicken</span> aka getByText('chicken', { exact: true })\n\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('chicken')\u001b[22m\n",
+                        "stack": "Error: expect.toBeVisible: Error: strict mode violation: getByText('chicken') resolved to 2 elements:\n    1) <span data-testid=\"selected-ingredient-0\" class=\"inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800\">…</span> aka getByTestId('selected-ingredient-0')\n    2) <span class=\"px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm\">chicken</span> aka getByText('chicken', { exact: true })\n\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('chicken')\u001b[22m\n\n    at /Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js:17:45",
+                        "location": {
+                          "file": "/Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js",
+                          "column": 45,
+                          "line": 17
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 15 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'chicken'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 16 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 17 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'chicken'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 18 |\u001b[39m     \n \u001b[90m 19 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'rice'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 20 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js",
+                            "column": 45,
+                            "line": 17
+                          },
+                          "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('chicken') resolved to 2 elements:\n    1) <span data-testid=\"selected-ingredient-0\" class=\"inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800\">…</span> aka getByTestId('selected-ingredient-0')\n    2) <span class=\"px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm\">chicken</span> aka getByText('chicken', { exact: true })\n\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('chicken')\u001b[22m\n\n\n\u001b[0m \u001b[90m 15 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'chicken'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 16 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 17 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'chicken'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 18 |\u001b[39m     \n \u001b[90m 19 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'rice'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 20 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at /Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js:17:45\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-05-29T04:44:31.292Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mangeshraut/Development/hackathon test/test-results/recipe-generation-Recipe-G-068af-ecipe-generation-flow-smoke-firefox/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/mangeshraut/Development/hackathon test/test-results/recipe-generation-Recipe-G-068af-ecipe-generation-flow-smoke-firefox/video.webm"
+                        },
+                        {
+                          "name": "_error-context-0",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mangeshraut/Development/hackathon test/test-results/recipe-generation-Recipe-G-068af-ecipe-generation-flow-smoke-firefox/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js",
+                        "column": 45,
+                        "line": 17
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "124340fe46c2b9bc87c4-29e75bfa314de4c46cad",
+              "file": "recipe-generation.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "should complete full recipe generation flow @smoke",
+              "ok": false,
+              "tags": [
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 1629,
+                      "error": {
+                        "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('chicken') resolved to 2 elements:\n    1) <span data-testid=\"selected-ingredient-0\" class=\"inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800\">…</span> aka getByTestId('selected-ingredient-0')\n    2) <span class=\"px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm\">chicken</span> aka getByText('chicken', { exact: true })\n\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('chicken')\u001b[22m\n",
+                        "stack": "Error: expect.toBeVisible: Error: strict mode violation: getByText('chicken') resolved to 2 elements:\n    1) <span data-testid=\"selected-ingredient-0\" class=\"inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800\">…</span> aka getByTestId('selected-ingredient-0')\n    2) <span class=\"px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm\">chicken</span> aka getByText('chicken', { exact: true })\n\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('chicken')\u001b[22m\n\n    at /Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js:17:45",
+                        "location": {
+                          "file": "/Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js",
+                          "column": 45,
+                          "line": 17
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 15 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'chicken'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 16 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 17 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'chicken'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 18 |\u001b[39m     \n \u001b[90m 19 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'rice'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 20 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js",
+                            "column": 45,
+                            "line": 17
+                          },
+                          "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('chicken') resolved to 2 elements:\n    1) <span data-testid=\"selected-ingredient-0\" class=\"inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800\">…</span> aka getByTestId('selected-ingredient-0')\n    2) <span class=\"px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm\">chicken</span> aka getByText('chicken', { exact: true })\n\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('chicken')\u001b[22m\n\n\n\u001b[0m \u001b[90m 15 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'chicken'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 16 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 17 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'chicken'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 18 |\u001b[39m     \n \u001b[90m 19 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'rice'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 20 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at /Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js:17:45\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-05-29T04:44:31.293Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mangeshraut/Development/hackathon test/test-results/recipe-generation-Recipe-G-068af-ecipe-generation-flow-smoke-webkit/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/mangeshraut/Development/hackathon test/test-results/recipe-generation-Recipe-G-068af-ecipe-generation-flow-smoke-webkit/video.webm"
+                        },
+                        {
+                          "name": "_error-context-0",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mangeshraut/Development/hackathon test/test-results/recipe-generation-Recipe-G-068af-ecipe-generation-flow-smoke-webkit/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js",
+                        "column": 45,
+                        "line": 17
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "124340fe46c2b9bc87c4-2523a398533c056a1cee",
+              "file": "recipe-generation.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "should complete full recipe generation flow @smoke",
+              "ok": false,
+              "tags": [
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 1240,
+                      "error": {
+                        "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('chicken') resolved to 2 elements:\n    1) <span data-testid=\"selected-ingredient-0\" class=\"inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800\">…</span> aka getByTestId('selected-ingredient-0')\n    2) <span class=\"px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm\">chicken</span> aka getByText('chicken', { exact: true })\n\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('chicken')\u001b[22m\n",
+                        "stack": "Error: expect.toBeVisible: Error: strict mode violation: getByText('chicken') resolved to 2 elements:\n    1) <span data-testid=\"selected-ingredient-0\" class=\"inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800\">…</span> aka getByTestId('selected-ingredient-0')\n    2) <span class=\"px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm\">chicken</span> aka getByText('chicken', { exact: true })\n\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('chicken')\u001b[22m\n\n    at /Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js:17:45",
+                        "location": {
+                          "file": "/Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js",
+                          "column": 45,
+                          "line": 17
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 15 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'chicken'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 16 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 17 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'chicken'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 18 |\u001b[39m     \n \u001b[90m 19 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'rice'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 20 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js",
+                            "column": 45,
+                            "line": 17
+                          },
+                          "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('chicken') resolved to 2 elements:\n    1) <span data-testid=\"selected-ingredient-0\" class=\"inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800\">…</span> aka getByTestId('selected-ingredient-0')\n    2) <span class=\"px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm\">chicken</span> aka getByText('chicken', { exact: true })\n\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('chicken')\u001b[22m\n\n\n\u001b[0m \u001b[90m 15 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'chicken'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 16 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 17 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'chicken'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 18 |\u001b[39m     \n \u001b[90m 19 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'rice'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 20 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at /Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js:17:45\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-05-29T04:44:31.293Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mangeshraut/Development/hackathon test/test-results/recipe-generation-Recipe-G-068af-ecipe-generation-flow-smoke-Mobile-Chrome/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/mangeshraut/Development/hackathon test/test-results/recipe-generation-Recipe-G-068af-ecipe-generation-flow-smoke-Mobile-Chrome/video.webm"
+                        },
+                        {
+                          "name": "_error-context-0",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mangeshraut/Development/hackathon test/test-results/recipe-generation-Recipe-G-068af-ecipe-generation-flow-smoke-Mobile-Chrome/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js",
+                        "column": 45,
+                        "line": 17
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "124340fe46c2b9bc87c4-02c6b534257760bf1863",
+              "file": "recipe-generation.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "should complete full recipe generation flow @smoke",
+              "ok": false,
+              "tags": [
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Safari",
+                  "projectName": "Mobile Safari",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "failed",
+                      "duration": 1627,
+                      "error": {
+                        "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('chicken') resolved to 2 elements:\n    1) <span data-testid=\"selected-ingredient-0\" class=\"inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800\">…</span> aka getByTestId('selected-ingredient-0')\n    2) <span class=\"px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm\">chicken</span> aka getByText('chicken', { exact: true })\n\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('chicken')\u001b[22m\n",
+                        "stack": "Error: expect.toBeVisible: Error: strict mode violation: getByText('chicken') resolved to 2 elements:\n    1) <span data-testid=\"selected-ingredient-0\" class=\"inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800\">…</span> aka getByTestId('selected-ingredient-0')\n    2) <span class=\"px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm\">chicken</span> aka getByText('chicken', { exact: true })\n\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('chicken')\u001b[22m\n\n    at /Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js:17:45",
+                        "location": {
+                          "file": "/Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js",
+                          "column": 45,
+                          "line": 17
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 15 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'chicken'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 16 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 17 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'chicken'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 18 |\u001b[39m     \n \u001b[90m 19 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'rice'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 20 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js",
+                            "column": 45,
+                            "line": 17
+                          },
+                          "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('chicken') resolved to 2 elements:\n    1) <span data-testid=\"selected-ingredient-0\" class=\"inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800\">…</span> aka getByTestId('selected-ingredient-0')\n    2) <span class=\"px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm\">chicken</span> aka getByText('chicken', { exact: true })\n\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('chicken')\u001b[22m\n\n\n\u001b[0m \u001b[90m 15 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'chicken'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 16 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 17 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'chicken'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 18 |\u001b[39m     \n \u001b[90m 19 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'rice'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 20 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at /Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js:17:45\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-05-29T04:44:31.296Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mangeshraut/Development/hackathon test/test-results/recipe-generation-Recipe-G-068af-ecipe-generation-flow-smoke-Mobile-Safari/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/mangeshraut/Development/hackathon test/test-results/recipe-generation-Recipe-G-068af-ecipe-generation-flow-smoke-Mobile-Safari/video.webm"
+                        },
+                        {
+                          "name": "_error-context-0",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mangeshraut/Development/hackathon test/test-results/recipe-generation-Recipe-G-068af-ecipe-generation-flow-smoke-Mobile-Safari/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js",
+                        "column": 45,
+                        "line": 17
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "124340fe46c2b9bc87c4-f4672c9416762b818731",
+              "file": "recipe-generation.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "should complete full recipe generation flow @smoke",
+              "ok": false,
+              "tags": [
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Microsoft Edge",
+                  "projectName": "Microsoft Edge",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "failed",
+                      "duration": 3,
+                      "error": {
+                        "message": "Error: browserType.launch: Chromium distribution 'msedge' is not found at /Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge\nRun \"npx playwright install msedge\"",
+                        "stack": "Error: browserType.launch: Chromium distribution 'msedge' is not found at /Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge\nRun \"npx playwright install msedge\""
+                      },
+                      "errors": [
+                        {
+                          "message": "Error: browserType.launch: Chromium distribution 'msedge' is not found at /Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge\nRun \"npx playwright install msedge\""
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-05-29T04:44:31.292Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "_error-context-0",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mangeshraut/Development/hackathon test/test-results/recipe-generation-Recipe-G-068af-ecipe-generation-flow-smoke-Microsoft-Edge/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "124340fe46c2b9bc87c4-18c91e245514e2a079f4",
+              "file": "recipe-generation.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "should complete full recipe generation flow @smoke",
+              "ok": false,
+              "tags": [
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Google Chrome",
+                  "projectName": "Google Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 6,
+                      "status": "failed",
+                      "duration": 1276,
+                      "error": {
+                        "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('chicken') resolved to 2 elements:\n    1) <span data-testid=\"selected-ingredient-0\" class=\"inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800\">…</span> aka getByTestId('selected-ingredient-0')\n    2) <span class=\"px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm\">chicken</span> aka getByText('chicken', { exact: true })\n\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('chicken')\u001b[22m\n",
+                        "stack": "Error: expect.toBeVisible: Error: strict mode violation: getByText('chicken') resolved to 2 elements:\n    1) <span data-testid=\"selected-ingredient-0\" class=\"inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800\">…</span> aka getByTestId('selected-ingredient-0')\n    2) <span class=\"px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm\">chicken</span> aka getByText('chicken', { exact: true })\n\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('chicken')\u001b[22m\n\n    at /Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js:17:45",
+                        "location": {
+                          "file": "/Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js",
+                          "column": 45,
+                          "line": 17
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 15 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'chicken'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 16 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 17 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'chicken'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 18 |\u001b[39m     \n \u001b[90m 19 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'rice'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 20 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js",
+                            "column": 45,
+                            "line": 17
+                          },
+                          "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('chicken') resolved to 2 elements:\n    1) <span data-testid=\"selected-ingredient-0\" class=\"inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800\">…</span> aka getByTestId('selected-ingredient-0')\n    2) <span class=\"px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm\">chicken</span> aka getByText('chicken', { exact: true })\n\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('chicken')\u001b[22m\n\n\n\u001b[0m \u001b[90m 15 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'chicken'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 16 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 17 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'chicken'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 18 |\u001b[39m     \n \u001b[90m 19 |\u001b[39m     \u001b[36mawait\u001b[39m ingredientInput\u001b[33m.\u001b[39mfill(\u001b[32m'rice'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 20 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Enter'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at /Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js:17:45\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-05-29T04:44:31.294Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mangeshraut/Development/hackathon test/test-results/recipe-generation-Recipe-G-068af-ecipe-generation-flow-smoke-Google-Chrome/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/mangeshraut/Development/hackathon test/test-results/recipe-generation-Recipe-G-068af-ecipe-generation-flow-smoke-Google-Chrome/video.webm"
+                        },
+                        {
+                          "name": "_error-context-0",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mangeshraut/Development/hackathon test/test-results/recipe-generation-Recipe-G-068af-ecipe-generation-flow-smoke-Google-Chrome/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mangeshraut/Development/hackathon test/tests/e2e/recipe-generation.spec.js",
+                        "column": 45,
+                        "line": 17
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "124340fe46c2b9bc87c4-3cc28d638ed64c3f3484",
+              "file": "recipe-generation.spec.js",
+              "line": 9,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-05-29T04:44:27.995Z",
+    "duration": 9155.148000000001,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 7,
+    "flaky": 0
+  }
+}
