@@ -1,6 +1,6 @@
 # 🍲 Leftover-Based Recipe Generator
 
-A modern React application that helps you turn your leftover ingredients into delicious, healthy meals using AI-powered recipe generation.
+A modern React application that helps you turn your leftover ingredients into delicious, healthy meals using **real AI-powered recipe generation** with OpenAI's ChatGPT.
 
 ## ✨ Features
 
@@ -21,14 +21,17 @@ A modern React application that helps you turn your leftover ingredients into de
 - **Progressive UI**: Step-by-step interface that guides users through the process
 
 ### Phase 3: AI Recipe Generation ✅ COMPLETE
-- **AI-Powered Recipe Creation**: Smart recipe suggestions based on your ingredients and preferences
+- **🤖 Real OpenAI Integration**: Powered by ChatGPT for truly intelligent recipe creation
+- **Smart Fallback System**: Local recipe generation when API is unavailable
+- **Personalized Recipes**: AI considers your specific ingredients, dietary needs, and preferences
 - **Detailed Recipe Display**: Beautiful tabbed interface with ingredients, instructions, and timing
 - **Interactive Features**: Ingredient checklist, step-by-step instructions with visual indicators
 - **Nutritional Information**: Complete nutrition facts with macronutrient breakdown
-- **AI Insights**: Chef tips, health benefits, and recipe variations
+- **AI Insights**: Chef tips, health benefits, and recipe variations from real AI
 - **Recipe Alternatives**: Multiple variations with modification suggestions
 - **Loading Experience**: Engaging animations and progress indicators during generation
 - **Error Handling**: Graceful error states with retry functionality
+- **Waste Reduction Focus**: AI specifically optimized to minimize food waste
 
 ### Phase 4: Recipe Saving & History ✅ COMPLETE
 - **Save Favorite Recipes**: Bookmark recipes for easy access later
@@ -58,12 +61,13 @@ A modern React application that helps you turn your leftover ingredients into de
 ### Prerequisites
 - Node.js (v14 or higher)
 - npm or yarn
+- OpenAI API Key (for AI-powered recipe generation)
 
 ### Installation
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/mangeshraut27/leftover-recipe-generator.git
 cd leftover-recipe-generator
 ```
 
@@ -72,12 +76,33 @@ cd leftover-recipe-generator
 npm install
 ```
 
-3. Start the development server:
+3. Set up environment variables:
+```bash
+# Create .env file in the root directory
+echo "VITE_OPENAI_API_KEY=your_openai_api_key_here" > .env
+```
+
+4. Start the development server:
 ```bash
 npm run dev
 ```
 
-4. Open your browser and navigate to `http://localhost:5173`
+5. Open your browser and navigate to `http://localhost:5173`
+
+## 🤖 AI Integration
+
+### OpenAI-Powered Recipe Generation
+- **Real ChatGPT Integration**: Uses OpenAI's GPT-3.5-turbo model for intelligent recipe creation
+- **Smart Prompting**: Optimized prompts that focus on leftover ingredients and waste reduction
+- **Fallback System**: Automatically falls back to local generation if API is unavailable
+- **Cost Efficient**: Approximately $0.002 per recipe generation
+
+### AI Features
+- **Contextual Understanding**: AI understands your specific ingredients and dietary needs
+- **Creative Combinations**: Discovers unique ways to combine your leftovers
+- **Nutritional Awareness**: Provides accurate nutritional information and health insights
+- **Cultural Adaptability**: Can create recipes from various cuisines and cooking styles
+- **Waste Optimization**: Specifically trained to minimize food waste and maximize ingredient usage
 
 ## 🧪 Testing
 
@@ -99,11 +124,13 @@ Current test coverage:
 ## 🛠️ Tech Stack
 
 - **Frontend**: React 18 with Vite
+- **AI Integration**: OpenAI GPT-3.5-turbo API
 - **Styling**: Tailwind CSS
 - **Testing**: Jest + React Testing Library
 - **Build Tool**: Vite
 - **Language**: Modern JavaScript (ES6+)
 - **Storage**: Local Storage API for data persistence
+- **Environment**: Vite environment variables for secure API key management
 
 ## 📁 Project Structure
 
@@ -124,7 +151,7 @@ src/
 │       ├── LoadingSpinner.test.js
 │       └── SavedRecipes.test.js
 ├── services/
-│   ├── recipeService.js         # Phase 3: AI recipe generation
+│   ├── recipeService.js         # Phase 3: AI recipe generation with OpenAI
 │   └── storageService.js        # Phase 4: Local storage management
 ├── App.jsx                      # Main application component
 ├── index.css                    # Global styles with Tailwind
@@ -142,7 +169,7 @@ src/
    - Select preferred cooking time
    - Adjust serving size
 
-4. **Generate Recipe**: Click "Generate My Recipe!" to create a personalized recipe using AI.
+4. **Generate Recipe**: Click "Generate My Recipe!" to create a personalized recipe using real AI.
 
 5. **Explore Recipe**: Use the tabbed interface to view ingredients, nutrition, AI insights, and alternatives.
 
@@ -167,6 +194,13 @@ src/
 - `postcss.config.js` - PostCSS configuration
 - `jest.config.cjs` - Jest testing configuration
 - `babel.config.cjs` - Babel configuration
+- `.env` - Environment variables (OpenAI API key)
+
+### Environment Variables
+
+```bash
+VITE_OPENAI_API_KEY=your_openai_api_key_here
+```
 
 ## 🎨 Design Principles
 
@@ -175,6 +209,7 @@ src/
 - **Accessible**: Proper ARIA labels and keyboard navigation
 - **Modern**: Clean design with smooth animations and transitions
 - **Performance**: Optimized with Vite and modern React patterns
+- **AI-Enhanced**: Leverages real AI for superior recipe generation
 
 ## 🧩 Component Architecture
 
@@ -188,6 +223,12 @@ src/
 - Provides multiple selection categories
 - Updates parent component via callbacks
 
+### RecipeService
+- **OpenAI Integration**: Real AI-powered recipe generation
+- **Fallback System**: Local generation when API unavailable
+- **Error Handling**: Graceful degradation and retry logic
+- **Prompt Engineering**: Optimized prompts for best AI results
+
 ### App
 - Orchestrates the overall application flow
 - Manages global state for ingredients and preferences
@@ -197,9 +238,23 @@ src/
 
 - [x] **Phase 1**: Ingredient Input System
 - [x] **Phase 2**: Meal Type & Preference Selection
-- [x] **Phase 3**: AI Recipe Generation Integration
+- [x] **Phase 3**: AI Recipe Generation Integration (with real OpenAI)
 - [x] **Phase 4**: Recipe Saving & History
 - [ ] **Phase 5**: Social Sharing Features
+- [ ] **Future**: Advanced AI features (image recognition, voice input)
+
+## 🔐 Security & Privacy
+
+- **API Key Security**: Environment variables keep your OpenAI key secure
+- **Local Storage**: Personal data stays on your device
+- **No Data Collection**: We don't store or track your recipes or ingredients
+- **Fallback Protection**: App works even without API access
+
+## 💰 Cost Information
+
+- **OpenAI Usage**: ~$0.002 per recipe generation (very affordable)
+- **Free Fallback**: Local generation available when API quota exceeded
+- **No Subscription**: Pay only for what you use
 
 ## 🤝 Contributing
 

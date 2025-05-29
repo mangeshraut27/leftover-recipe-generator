@@ -1,7 +1,11 @@
-// Enhanced AI Recipe Generation Service
-// This creates dynamic recipes based on user's leftover ingredients
+// Enhanced AI Recipe Generation Service with Real OpenAI Integration
+// This creates dynamic recipes using ChatGPT based on user's leftover ingredients
 
-// Ingredient categories and their common pairings
+// OpenAI API Configuration
+const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
+const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
+
+// Ingredient categories and their common pairings (kept for fallback)
 const ingredientCategories = {
   proteins: {
     items: ['chicken', 'beef', 'pork', 'fish', 'salmon', 'tuna', 'eggs', 'tofu', 'beans', 'lentils', 'chickpeas'],
@@ -33,156 +37,179 @@ const ingredientCategories = {
   }
 };
 
-// Recipe templates based on meal types and cooking methods
-const recipeTemplates = {
-  breakfast: {
-    'scrambled_eggs': {
-      baseIngredients: ['eggs'],
-      additionalIngredients: ['butter', 'milk', 'salt', 'pepper'],
-      optionalIngredients: ['cheese', 'herbs', 'vegetables'],
-      instructions: [
-        'Crack {eggs} into a bowl and whisk with {milk}, salt, and pepper',
-        'Heat {butter} in a non-stick pan over medium-low heat',
-        'Pour in eggs and let sit for 20 seconds, then gently stir',
-        'Continue cooking, stirring gently until eggs are creamy',
-        'Add {cheese} and {vegetables} if using',
-        'Serve immediately with toast'
-      ],
-      cookTime: 10,
-      difficulty: 'Easy'
-    },
-    'pancakes': {
-      baseIngredients: ['flour', 'eggs', 'milk'],
-      additionalIngredients: ['baking powder', 'sugar', 'salt', 'butter'],
-      optionalIngredients: ['vanilla', 'berries', 'honey'],
-      instructions: [
-        'Mix {flour}, baking powder, sugar, and salt in a large bowl',
-        'In another bowl, whisk {eggs}, {milk}, and melted {butter}',
-        'Combine wet and dry ingredients until just mixed',
-        'Heat a griddle over medium heat',
-        'Pour batter and cook until bubbles form, then flip',
-        'Serve with {honey} and {berries}'
-      ],
-      cookTime: 20,
-      difficulty: 'Easy'
+// OpenAI API call function
+const callOpenAI = async (prompt) => {
+  if (!OPENAI_API_KEY) {
+    throw new Error('OpenAI API key not configured');
+  }
+
+  try {
+    const response = await fetch(OPENAI_API_URL, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${OPENAI_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: 'gpt-3.5-turbo',
+        messages: [
+          {
+            role: 'system',
+            content: `You are a professional chef and nutritionist specializing in creating recipes from leftover ingredients. You help reduce food waste by creating delicious, healthy meals. Always respond with valid JSON in the exact format requested.`
+          },
+          {
+            role: 'user',
+            content: prompt
+          }
+        ],
+        max_tokens: 2000,
+        temperature: 0.7,
+      }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(`OpenAI API error: ${response.status} - ${errorData.error?.message || 'Unknown error'}`);
     }
-  },
-  lunch: {
-    'stir_fry': {
-      baseIngredients: ['vegetables', 'protein'],
-      additionalIngredients: ['oil', 'soy sauce', 'garlic', 'ginger'],
-      optionalIngredients: ['rice', 'noodles', 'sesame oil', 'green onions'],
-      instructions: [
-        'Heat {oil} in a large wok or skillet over high heat',
-        'Add {garlic} and ginger, stir-fry for 30 seconds',
-        'Add {protein} and cook until almost done',
-        'Add {vegetables} and stir-fry until tender-crisp',
-        'Add {soy sauce} and toss to combine',
-        'Serve over {rice} or {noodles}'
-      ],
-      cookTime: 15,
-      difficulty: 'Easy'
-    },
-    'salad_bowl': {
-      baseIngredients: ['lettuce', 'vegetables'],
-      additionalIngredients: ['olive oil', 'vinegar', 'salt', 'pepper'],
-      optionalIngredients: ['protein', 'cheese', 'nuts', 'seeds'],
-      instructions: [
-        'Wash and chop {lettuce} and {vegetables}',
-        'Arrange in a large bowl',
-        'Add {protein} and {cheese} if using',
-        'Whisk together {olive oil}, {vinegar}, salt, and pepper',
-        'Drizzle dressing over salad',
-        'Toss gently and serve immediately'
-      ],
-      cookTime: 10,
-      difficulty: 'Easy'
-    },
-    'pasta_dish': {
-      baseIngredients: ['pasta'],
-      additionalIngredients: ['olive oil', 'garlic', 'salt', 'pepper'],
-      optionalIngredients: ['vegetables', 'protein', 'cheese', 'herbs'],
-      instructions: [
-        'Cook {pasta} according to package directions',
-        'Heat {olive oil} in a large pan',
-        'Add {garlic} and cook for 1 minute',
-        'Add {vegetables} and {protein}, cook until tender',
-        'Add drained pasta and toss',
-        'Season with salt, pepper, and {herbs}',
-        'Top with {cheese} and serve'
-      ],
-      cookTime: 20,
-      difficulty: 'Medium'
-    }
-  },
-  dinner: {
-    'roasted_dish': {
-      baseIngredients: ['protein', 'vegetables'],
-      additionalIngredients: ['olive oil', 'salt', 'pepper', 'herbs'],
-      optionalIngredients: ['potatoes', 'onions', 'garlic'],
-      instructions: [
-        'Preheat oven to 400°F (200°C)',
-        'Cut {vegetables} and {potatoes} into chunks',
-        'Toss with {olive oil}, salt, pepper, and {herbs}',
-        'Place {protein} and vegetables on a baking sheet',
-        'Roast for 25-35 minutes until cooked through',
-        'Let rest for 5 minutes before serving'
-      ],
-      cookTime: 40,
-      difficulty: 'Medium'
-    },
-    'soup': {
-      baseIngredients: ['vegetables', 'broth'],
-      additionalIngredients: ['onions', 'garlic', 'oil', 'salt', 'pepper'],
-      optionalIngredients: ['protein', 'beans', 'herbs', 'cream'],
-      instructions: [
-        'Heat {oil} in a large pot',
-        'Sauté {onions} and {garlic} until fragrant',
-        'Add {vegetables} and cook for 5 minutes',
-        'Add {broth} and bring to a boil',
-        'Simmer for 20 minutes until vegetables are tender',
-        'Add {protein} and {beans} if using',
-        'Season with salt, pepper, and {herbs}'
-      ],
-      cookTime: 30,
-      difficulty: 'Easy'
-    }
-  },
-  snack: {
-    'quick_bite': {
-      baseIngredients: ['bread', 'cheese'],
-      additionalIngredients: ['butter'],
-      optionalIngredients: ['tomatoes', 'herbs', 'vegetables'],
-      instructions: [
-        'Toast {bread} until golden',
-        'Spread with {butter}',
-        'Top with {cheese} and {vegetables}',
-        'Add {herbs} for extra flavor',
-        'Serve immediately'
-      ],
-      cookTime: 5,
-      difficulty: 'Easy'
-    }
-  },
-  dessert: {
-    'fruit_bowl': {
-      baseIngredients: ['fruits'],
-      additionalIngredients: ['honey', 'yogurt'],
-      optionalIngredients: ['nuts', 'granola', 'mint'],
-      instructions: [
-        'Wash and cut {fruits} into bite-sized pieces',
-        'Arrange in a bowl',
-        'Drizzle with {honey}',
-        'Top with {yogurt} and {nuts}',
-        'Garnish with {mint} if desired'
-      ],
-      cookTime: 5,
-      difficulty: 'Easy'
-    }
+
+    const data = await response.json();
+    return data.choices[0]?.message?.content;
+  } catch (error) {
+    console.error('OpenAI API call failed:', error);
+    throw error;
   }
 };
 
-// Categorize user ingredients
+// Generate recipe prompt for OpenAI
+const generateRecipePrompt = (ingredients, preferences) => {
+  const { mealType, dietaryPreferences, cookingTime, servingSize } = preferences;
+  
+  const dietaryText = dietaryPreferences && dietaryPreferences.length > 0 
+    ? `The recipe must be ${dietaryPreferences.join(', ')}.` 
+    : '';
+  
+  const timeText = cookingTime ? `The total cooking time should be around ${cookingTime} minutes.` : '';
+  
+  return `Create a ${mealType || 'meal'} recipe using these leftover ingredients: ${ingredients.join(', ')}.
+
+Requirements:
+- Use ALL the provided ingredients as the main components
+- Suggest minimal additional ingredients (pantry staples like oil, salt, pepper, etc.)
+- ${dietaryText}
+- ${timeText}
+- Serves ${servingSize || 4} people
+- Focus on reducing food waste by maximizing use of leftovers
+
+Please respond with a JSON object in this exact format:
+{
+  "title": "Recipe Name",
+  "description": "Brief description of the dish",
+  "totalTime": 30,
+  "servings": 4,
+  "difficulty": "Easy|Medium|Hard",
+  "ingredients": [
+    {"name": "ingredient name", "amount": "1", "unit": "cup", "isLeftover": true},
+    {"name": "additional ingredient", "amount": "2", "unit": "tbsp", "isLeftover": false}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "First step description", "time": 5},
+    {"step": 2, "instruction": "Second step description", "time": 10}
+  ],
+  "nutrition": {
+    "calories": 450,
+    "protein": 25,
+    "carbs": 35,
+    "fat": 15,
+    "fiber": 8,
+    "sugar": 5
+  },
+  "tags": ["healthy", "quick", "leftover-friendly"],
+  "aiInsights": {
+    "tips": ["Chef tip 1", "Chef tip 2"],
+    "healthBenefits": ["Health benefit 1", "Health benefit 2"],
+    "variations": ["Variation 1", "Variation 2"]
+  },
+  "alternatives": [
+    {
+      "title": "Alternative Recipe Name",
+      "description": "How to modify the recipe",
+      "modifications": ["Change 1", "Change 2"]
+    }
+  ]
+}`;
+};
+
+// Fallback recipe generation (original logic)
+const generateFallbackRecipe = (ingredients, preferences) => {
+  // ... existing code ...
+  const categorized = categorizeIngredients(ingredients);
+  const complementary = generateComplementaryIngredients(ingredients, preferences.mealType, preferences.dietaryPreferences);
+  
+  // Create a basic recipe structure
+  const recipe = {
+    id: Date.now(),
+    title: `${preferences.mealType || 'Leftover'} Recipe with ${ingredients.slice(0, 2).join(' and ')}`,
+    description: `A delicious ${preferences.mealType || 'meal'} made with your leftover ingredients`,
+    totalTime: preferences.cookingTime ? parseInt(preferences.cookingTime) : 30,
+    servings: preferences.servingSize || 4,
+    difficulty: 'Easy',
+    ingredients: [
+      ...ingredients.map(ing => ({
+        name: ing,
+        amount: '1',
+        unit: 'portion',
+        isLeftover: true
+      })),
+      ...complementary.slice(0, 3).map(ing => ({
+        name: ing,
+        amount: 'as needed',
+        unit: '',
+        isLeftover: false
+      }))
+    ],
+    instructions: [
+      { step: 1, instruction: 'Prepare all ingredients by washing and chopping as needed.', time: 5 },
+      { step: 2, instruction: `Combine your leftover ${ingredients.join(', ')} in a suitable cooking method.`, time: 15 },
+      { step: 3, instruction: 'Season with salt, pepper, and any additional spices to taste.', time: 5 },
+      { step: 4, instruction: 'Cook until heated through and flavors are well combined.', time: 10 },
+      { step: 5, instruction: 'Serve hot and enjoy your waste-free meal!', time: 0 }
+    ],
+    nutrition: {
+      calories: 350,
+      protein: 20,
+      carbs: 30,
+      fat: 12,
+      fiber: 6,
+      sugar: 8
+    },
+    tags: ['leftover-friendly', 'waste-reduction', 'quick'],
+    aiInsights: {
+      tips: [
+        'Taste and adjust seasoning as you cook',
+        'Feel free to add herbs or spices you have on hand'
+      ],
+      healthBenefits: [
+        'Using leftovers reduces food waste',
+        'Combining different ingredients provides varied nutrients'
+      ],
+      variations: [
+        'Add a protein if missing for a more filling meal',
+        'Include fresh herbs for extra flavor'
+      ]
+    },
+    alternatives: [
+      {
+        title: 'Spicier Version',
+        description: 'Add heat with chili peppers or hot sauce',
+        modifications: ['Add 1 tsp chili flakes', 'Include hot sauce to taste']
+      }
+    ]
+  };
+
+  return recipe;
+};
+
+// Categorize user ingredients (helper function)
 const categorizeIngredients = (ingredients) => {
   const categorized = {
     proteins: [],
@@ -226,8 +253,8 @@ const generateComplementaryIngredients = (userIngredients, mealType, dietaryPref
   complementary.push(...basicPantry);
 
   // Add protein if missing
-  if (categorized.proteins.length === 0 && !dietaryPreferences.includes('vegan')) {
-    if (dietaryPreferences.includes('vegetarian')) {
+  if (categorized.proteins.length === 0 && !dietaryPreferences?.includes('vegan')) {
+    if (dietaryPreferences?.includes('vegetarian')) {
       complementary.push('eggs', 'cheese');
     } else {
       complementary.push('chicken breast');
@@ -252,97 +279,47 @@ const generateComplementaryIngredients = (userIngredients, mealType, dietaryPref
   return [...new Set(complementary)]; // Remove duplicates
 };
 
-// Create dynamic recipe
-const createDynamicRecipe = (userIngredients, preferences) => {
-  const { mealType, dietaryPreferences = [], servingSize = 4 } = preferences;
-  const categorized = categorizeIngredients(userIngredients);
-  
-  // Select appropriate recipe template
-  const mealTemplates = recipeTemplates[mealType] || recipeTemplates.lunch;
-  const templateKeys = Object.keys(mealTemplates);
-  
-  // Choose template based on available ingredients
-  let selectedTemplate = 'stir_fry'; // default
-  
-  if (categorized.proteins.length > 0 && categorized.vegetables.length > 0) {
-    selectedTemplate = mealType === 'dinner' ? 'roasted_dish' : 'stir_fry';
-  } else if (categorized.grains.length > 0) {
-    selectedTemplate = 'pasta_dish';
-  } else if (categorized.vegetables.length > 0) {
-    selectedTemplate = mealType === 'lunch' ? 'salad_bowl' : 'soup';
-  }
-  
-  // Use the first available template if selected doesn't exist
-  if (!mealTemplates[selectedTemplate]) {
-    selectedTemplate = templateKeys[0];
-  }
-  
-  const template = mealTemplates[selectedTemplate];
-  const complementaryIngredients = generateComplementaryIngredients(userIngredients, mealType, dietaryPreferences);
-  
-  // Combine user ingredients with complementary ones
-  const allIngredients = [...userIngredients, ...complementaryIngredients];
-  
-  // Generate recipe title
-  const mainIngredients = [...categorized.proteins, ...categorized.vegetables, ...categorized.grains]
-    .slice(0, 2)
-    .join(' and ');
-  
-  const title = mainIngredients 
-    ? `${mainIngredients.charAt(0).toUpperCase() + mainIngredients.slice(1)} ${selectedTemplate.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}`
-    : `Delicious ${mealType.charAt(0).toUpperCase() + mealType.slice(1)}`;
-
-  return {
-    id: Date.now(),
-    title,
-    description: `A delicious ${mealType} made with your leftover ${userIngredients.slice(0, 3).join(', ')}${userIngredients.length > 3 ? ' and more' : ''}`,
-    prepTime: 10,
-    cookTime: template.cookTime,
-    totalTime: 10 + template.cookTime,
-    difficulty: template.difficulty,
-    servings: servingSize,
-    ingredients: allIngredients.map(ing => 
-      typeof ing === 'string' ? ing : `${ing.amount || ''} ${ing.unit || ''} ${ing.name || ing}`.trim()
-    ),
-    instructions: template.instructions.map((instruction, index) => ({
-      step: index + 1,
-      instruction: instruction.replace(/\{(\w+)\}/g, (match, ingredient) => {
-        const found = allIngredients.find(ing => 
-          ing.toLowerCase().includes(ingredient.toLowerCase())
-        );
-        return found || ingredient;
-      })
-    })),
-    nutrition: {
-      calories: Math.floor(300 + Math.random() * 300),
-      protein: Math.floor(15 + Math.random() * 25),
-      carbs: Math.floor(20 + Math.random() * 40),
-      fat: Math.floor(10 + Math.random() * 20),
-      fiber: Math.floor(3 + Math.random() * 8)
-    },
-    tags: [mealType, template.difficulty.toLowerCase(), 'leftover-friendly'],
-    userIngredients: userIngredients,
-    complementaryIngredients: complementaryIngredients
-  };
-};
-
-// Simulate AI processing delay
-const simulateAIDelay = () => {
-  return new Promise(resolve => {
-    setTimeout(resolve, 1500 + Math.random() * 1500); // 1.5-3 seconds
-  });
-};
-
-// Generate recipe based on ingredients and preferences
+// Main recipe generation function with OpenAI integration
 export const generateRecipe = async (ingredients, preferences) => {
-  await simulateAIDelay();
-  
   try {
     if (!ingredients || ingredients.length === 0) {
       throw new Error('Please add at least one ingredient to generate a recipe');
     }
 
-    const recipe = createDynamicRecipe(ingredients, preferences);
+    // Try OpenAI first
+    if (OPENAI_API_KEY) {
+      try {
+        console.log('🤖 Generating recipe with OpenAI...');
+        const prompt = generateRecipePrompt(ingredients, preferences);
+        const aiResponse = await callOpenAI(prompt);
+        
+        // Parse the JSON response
+        const recipe = JSON.parse(aiResponse);
+        
+        // Add ID and timestamp
+        recipe.id = Date.now();
+        recipe.createdAt = new Date().toISOString();
+        recipe.source = 'openai';
+        
+        console.log('✅ OpenAI recipe generated successfully');
+        
+        return {
+          success: true,
+          recipe: recipe,
+          aiInsights: recipe.aiInsights || generateAIInsights(ingredients, preferences),
+          alternatives: recipe.alternatives || generateAlternatives(recipe, preferences)
+        };
+        
+      } catch (openaiError) {
+        console.warn('⚠️ OpenAI generation failed, falling back to local generation:', openaiError.message);
+        // Fall through to fallback generation
+      }
+    }
+
+    // Fallback to local generation
+    console.log('🔄 Using fallback recipe generation...');
+    const recipe = generateFallbackRecipe(ingredients, preferences);
+    recipe.source = 'fallback';
     
     return {
       success: true,
@@ -352,6 +329,7 @@ export const generateRecipe = async (ingredients, preferences) => {
     };
     
   } catch (error) {
+    console.error('❌ Recipe generation failed:', error);
     return {
       success: false,
       error: error.message || 'Failed to generate recipe. Please try again.'
@@ -359,7 +337,7 @@ export const generateRecipe = async (ingredients, preferences) => {
   }
 };
 
-// Generate AI insights about the recipe
+// Generate AI insights about the recipe (fallback function)
 const generateAIInsights = (ingredients, preferences) => {
   const insights = [];
   const categorized = categorizeIngredients(ingredients);
@@ -389,27 +367,42 @@ const generateAIInsights = (ingredients, preferences) => {
   return insights;
 };
 
-// Generate recipe alternatives
+// Generate recipe alternatives (fallback function)
 const generateAlternatives = (baseRecipe, preferences) => {
   const alternatives = [];
   
+  // Spicier version
   alternatives.push({
-    title: "Spicier Version",
-    description: "Add heat with chili peppers or hot sauce",
-    modifications: ["Add 1-2 chili peppers", "Include red pepper flakes", "Drizzle with hot sauce"]
+    title: "🌶️ Spicier Version",
+    description: "Add some heat to wake up your taste buds",
+    modifications: [
+      "Add 1 tsp red pepper flakes",
+      "Include fresh jalapeños or hot sauce",
+      "Use spicy seasonings like cayenne or paprika"
+    ]
   });
   
+  // Healthier version
   alternatives.push({
-    title: "Healthier Version",
-    description: "Boost nutrition and reduce calories",
-    modifications: ["Add extra vegetables", "Use less oil", "Include leafy greens", "Use whole grain options"]
+    title: "🥗 Lighter Version",
+    description: "Reduce calories while keeping great flavor",
+    modifications: [
+      "Use less oil or cooking spray",
+      "Add more vegetables for bulk",
+      "Reduce any cheese or cream by half"
+    ]
   });
   
+  // Vegetarian version (if not already)
   if (!preferences.dietaryPreferences?.includes('vegetarian')) {
     alternatives.push({
-      title: "Vegetarian Version",
-      description: "Replace meat with plant-based proteins",
-      modifications: ["Use tofu or tempeh instead of meat", "Add beans or lentils", "Include nuts for protein"]
+      title: "🌱 Vegetarian Version",
+      description: "Plant-based twist on this recipe",
+      modifications: [
+        "Replace meat with tofu, tempeh, or extra beans",
+        "Use vegetable broth instead of meat broth",
+        "Add nutritional yeast for umami flavor"
+      ]
     });
   }
   
