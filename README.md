@@ -92,7 +92,7 @@ npm run dev
 ## 🤖 AI Integration
 
 ### OpenAI-Powered Recipe Generation
-- **Real ChatGPT Integration**: Uses OpenAI's GPT-3.5-turbo model for intelligent recipe creation
+- **Real ChatGPT Integration**: Uses OpenAI's GPT-4o mini model for intelligent recipe creation
 - **Smart Prompting**: Optimized prompts that focus on leftover ingredients and waste reduction
 - **Fallback System**: Automatically falls back to local generation if API is unavailable
 - **Cost Efficient**: Approximately $0.002 per recipe generation
@@ -124,7 +124,7 @@ Current test coverage:
 ## 🛠️ Tech Stack
 
 - **Frontend**: React 18 with Vite
-- **AI Integration**: OpenAI GPT-3.5-turbo API
+- **AI Integration**: OpenAI GPT-4o mini API
 - **Styling**: Tailwind CSS
 - **Testing**: Jest + React Testing Library
 - **Build Tool**: Vite

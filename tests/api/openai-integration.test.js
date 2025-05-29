@@ -267,12 +267,12 @@ describe('OpenAI API Integration Tests', () => {
             'Authorization': 'Bearer test-api-key',
             'Content-Type': 'application/json'
           },
-          body: expect.stringContaining('"model":"gpt-3.5-turbo"')
+          body: expect.stringContaining('"model":"gpt-4o-mini"')
         })
       );
 
       const requestBody = JSON.parse(fetch.mock.calls[0][1].body);
-      expect(requestBody.model).toBe('gpt-3.5-turbo');
+      expect(requestBody.model).toBe('gpt-4o-mini');
       expect(requestBody.max_tokens).toBe(2000);
       expect(requestBody.temperature).toBe(0.7);
       expect(requestBody.messages).toHaveLength(2);
